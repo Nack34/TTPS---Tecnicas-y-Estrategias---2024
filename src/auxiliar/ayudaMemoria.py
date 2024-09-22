@@ -1,5 +1,5 @@
 
-def leer_entrada():
+def leer_entrada_antiguo():
     entrada = input().strip()  # lee una línea de entrada
     
     if not entrada:
@@ -9,6 +9,21 @@ def leer_entrada():
     
     # Convertir la entrada en una lista de enteros
     secuencia = list(map(int, entrada.split()))
+
+    return secuencia
+
+##############################################
+
+def leer_entrada(split_by = " ", eof_string= "EOF"):
+    entrada = input().strip()  # lee una línea de entrada
+    
+    if not entrada:
+        raise EOFError # Si se introduce una línea vacía, lanzamos EOFError
+    if entrada == eof_string:
+        raise EOFError  # Si se introduce eof_string, lanzamos EOFError
+    
+    # Convertir la entrada en una lista de enteros
+    secuencia = list(map(int, entrada.split(split_by)))
 
     return secuencia
 
